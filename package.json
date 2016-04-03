@@ -1,0 +1,24 @@
+{
+  "name": "iceboxtwitter",
+  "version": "0.0.1",
+  "description": "The IceBox is finally invading your social bubble.",
+  "main": "iceboxtwitter.js",
+  "scripts": {
+    "test": "test",
+    "start": "node iceboxtwitter.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MotieDesign101/IceBox-Twitter.git"
+  },
+  "keywords": [
+    "icebox",
+    "nbsp"
+  ],
+  "author": "TVLuke",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/MotieDesign101/IceBox-Twitter/issues"
+  },
+  "homepage": "https://github.com/MotieDesign101/IceBox-Twitter#readme"
+}

@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/MotieDesign101/IceBox-Twitter/issues"
   },
-  "homepage": "https://github.com/MotieDesign101/IceBox-Twitter#readme"
+  "homepage": "https://github.com/MotieDesign101/IceBox-Twitter#readme",
+  "dependencies": {
+    "twitter": "^1.2.5"
+  }
 }

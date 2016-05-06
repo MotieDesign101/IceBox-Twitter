@@ -1,5 +1,4 @@
 var Twitter = require('twitter');
-var constants = require('./constants.js');
 var controller = require('./controller/controller.js');
 
 var client = new Twitter({

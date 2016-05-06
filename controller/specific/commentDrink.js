@@ -9,6 +9,10 @@ var tweets = [
   'Wer säuft denn schon dieses <name>? Komische Menschen sind das im #Nbsp.',
   'Schon gehört? Jemand hat <name> vernascht.',
   'Nicht nur deine Mudda trinkt <name>, auch im #Nbsp ist diese zu haben!',
+  'Jemand hat <name> getrunken. Das war doch bestimmt wieder @DasIstDasBein.',
+  'Wenn die Sonne scheint, ist die richtige Zeit für <name>!',
+  'Marmor, Stein und Eisen bricht, aber hoffentlich die Flasche <name> nicht!',
+  'Kommt in den #Nbsp! Dort gibt\'s <name>!'
 ]
 
 exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {

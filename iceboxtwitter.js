@@ -3,10 +3,10 @@ var constants = require('./constants.js');
 var controller = require('./controller/controller.js');
 
 var client = new Twitter({
-  consumer_key: constants.getConsumerKey(),
-  consumer_secret: constants.getConsumerSecret(),
-  access_token_key: constants.getTokenKey(),
-  access_token_secret: constants.getTokenSecret()
+  consumer_key: process.env.ICEBOX_TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.ICEBOX_TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.ICEBOX_TWITTER_TOKEN_KEY,
+  access_token_secret: process.env.ICEBOX_TWITTER_TOKEN_SECRET
 });
 
 var rotationTime = 30000;
@@ -48,7 +48,7 @@ function tweet(text) {
     console.log(tweet); // Tweet body.
     console.log(response); // Raw response object.
   });
-  
+
 }
 
 //=====OLD===

@@ -5,7 +5,10 @@ var probability = 10;
 var tweets = [
   'Ah, <name>. Sehr geil. Dorsch ist auch sehr geil. #dorsch',
   'Wer kauft den bitte <name>?',
-  '<name> --;'
+  '<name> --;',
+  'Wer säuft denn schon dieses <name>? Komische Menschen sind das im #Nbsp.',
+  'Schon gehört? Jemand hat <name> vernascht.',
+  'Nicht nur deine Mudda trinkt <name>, auch im #Nbsp ist diese zu haben!',
 ]
 
 exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {

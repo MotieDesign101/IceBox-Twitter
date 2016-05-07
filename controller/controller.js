@@ -20,8 +20,8 @@ function generateTweets(tweetsToSendOut, consumptionData) {
 
 function getConsumptionData(callback) {
   console.log("get consumption data");
-  //var url = "http://icebox.nobreakspace.org:8081/consumptions/1";
-  var url = "http://localhost:8081/consumptions/1";
+  var url = "http://icebox.nobreakspace.org:8081/consumptions/1";
+  //var url = "http://localhost:8081/consumptions/1";
   webrequest(url, function(body) {
     callback(body);
   });

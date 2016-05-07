@@ -37,7 +37,6 @@ function tweetIfPossible() {
 function tweet(text) {
   console.log("tweet: "+ text);
 
-/*
   client.post('statuses/update', {
     status: text
   }, function(error, tweet, response) {
@@ -48,7 +47,7 @@ function tweet(text) {
     console.log(tweet); // Tweet body.
     console.log(response); // Raw response object.
   });
-*/
+
 }
 
 //=====OLD===

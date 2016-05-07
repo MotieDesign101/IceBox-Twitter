@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/MotieDesign101/IceBox-Twitter#readme",
   "dependencies": {
-    "twitter": "^1.2.5"
+    "twitter": "^1.2.5",
+    "request": "2.69.0"
   }
 }

@@ -1,6 +1,7 @@
 var randomtweet = require('./specific/randomtweet.js');
 var midnighttweet = require('./specific/midnighttweet.js');
 var commentdrink = require('./specific/commentDrink.js');
+var retweet = require('./specific/retweet.js');
 
 var request = require("request");
 
@@ -14,11 +15,14 @@ function generateTweets(tweetsToSendOut, consumptionData) {
   randomtweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
   midnighttweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
   commentdrink.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+  retweet.potentiallyAddTweet(tweetsToSendOut, consumptionData)
 }
 
 function getConsumptionData(callback) {
   console.log("get consumption data");
-  webrequest('http://icebox.nobreakspace.org:8081/consumptions/7', function(body) {
+  //var url = "http://icebox.nobreakspace.org:8081/consumptions/1";
+  var url = "http://localhost:8081/consumptions/1";
+  webrequest(url, function(body) {
     callback(body);
   });
 }

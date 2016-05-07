@@ -16,7 +16,7 @@ function getAmountOfDrinks(tweetsToSendOut, consumptionData) {
   var tweetText = "Mitternachtsstatistik: Am vergangenen Tag wurden insgesammt ";
   var howManyDrinks = consumptionData.length;
   tweetText = tweetText + howManyDrinks;
-  tweetText = tweetText * " Getränke gekauft."
+  tweetText = tweetText + " Getränke gekauft."
 
   tweetsToSendOut.push(tweetText);
 }
@@ -26,5 +26,5 @@ function getMostConsumedDrink(tweetsToSendOut, consumptionData) {
 }
 
 function getAmountOfCaffeein(tweetsToSendOut, consumptionData) {
-  
+
 }

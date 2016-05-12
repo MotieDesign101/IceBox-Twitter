@@ -22,6 +22,9 @@ exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {
 function addTweetIfNewDrink(tweetsToSendOut, consumptionData) {
   drink = consumptionData[0];
 
+  if(drink == undefined) {
+    return;
+  }
   var then = new Date(drink.consumetime);
   var now = new Date();
 

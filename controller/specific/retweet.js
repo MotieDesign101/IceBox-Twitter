@@ -1,13 +1,14 @@
+var constants = require('./../../constants.js');
 var helper = require('./../controllerhelper.js');
 var Twitter = require('twitter');
 
 var probability = 50;
 
 var client = new Twitter({
-  consumer_key: process.env.ICEBOX_TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.ICEBOX_TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.ICEBOX_TWITTER_TOKEN_KEY,
-  access_token_secret: process.env.ICEBOX_TWITTER_TOKEN_SECRET
+  consumer_key: constants.getConsumerKey() || process.env.ICEBOX_TWITTER_CONSUMER_KEY,
+  consumer_secret: constants.getConsumerSecret() || process.env.ICEBOX_TWITTER_CONSUMER_SECRET,
+  access_token_key: constants.getTokenKey() || process.env.ICEBOX_TWITTER_TOKEN_KEY ,
+  access_token_secret: constants.getTokenSecret() || process.env.ICEBOX_TWITTER_TOKEN_SECRET
 });
 
 var idOfLastTweet = 0;
@@ -19,6 +20,7 @@ exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {
 function getTweets() {
   client.get('search/tweets', {q: '#nbspgefluester'}, function(error, tweets, response){
     //var jtweets = JSON.parse(tweets);
+    console.log(tweets);
     var potentialtweet;
     if(tweets.statuses != undefined) {
       //console.log(JSON.stringify(tweets));
@@ -26,6 +28,9 @@ function getTweets() {
       potentialtweet = tweets.statuses[0];
     }
     console.log("ID of last tweet "+idOfLastTweet);
+    if(potentialtweet == undefined) {
+      return;
+    }
     console.log("ID of potential tweet "+potentialtweet.id);
     if(idOfLastTweet == 0 || idOfLastTweet == potentialtweet.id) {
       idOfLastTweet = potentialtweet.id;

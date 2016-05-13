@@ -20,7 +20,6 @@ exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {
 function getTweets() {
   client.get('search/tweets', {q: '#nbspgefluester'}, function(error, tweets, response){
     //var jtweets = JSON.parse(tweets);
-    console.log(tweets);
     var potentialtweet;
     if(tweets.statuses != undefined) {
       //console.log(JSON.stringify(tweets));

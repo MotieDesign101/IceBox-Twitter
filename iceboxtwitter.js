@@ -1,11 +1,12 @@
 var Twitter = require('twitter');
+var constants = require('./constants.js');
 var controller = require('./controller/controller.js');
 
 var client = new Twitter({
-  consumer_key: process.env.ICEBOX_TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.ICEBOX_TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.ICEBOX_TWITTER_TOKEN_KEY,
-  access_token_secret: process.env.ICEBOX_TWITTER_TOKEN_SECRET
+  consumer_key: constants.getConsumerKey() || process.env.ICEBOX_TWITTER_CONSUMER_KEY,
+  consumer_secret: constants.getConsumerSecret() || process.env.ICEBOX_TWITTER_CONSUMER_SECRET,
+  access_token_key: constants.getTokenKey() || process.env.ICEBOX_TWITTER_TOKEN_KEY ,
+  access_token_secret: constants.getTokenSecret() || process.env.ICEBOX_TWITTER_TOKEN_SECRET
 });
 
 var rotationTime = 30000;

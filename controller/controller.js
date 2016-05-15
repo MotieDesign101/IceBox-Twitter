@@ -12,10 +12,29 @@ exports.generateNewTweets = function(tweetsToSendOut) {
 }
 
 function generateTweets(tweetsToSendOut, consumptionData) {
-  randomtweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
-  midnighttweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
-  commentdrink.potentiallyAddTweet(tweetsToSendOut, consumptionData);
-  retweet.potentiallyAddTweet(tweetsToSendOut, consumptionData)
+  try{
+    randomtweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+  } catch(err) {
+    console.log("ERROR: "err);
+  }
+
+  try{
+    midnighttweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+  } catch(err) {
+    console.log("ERROR: "err);
+  }
+
+  try{
+    commentdrink.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+  } catch(err) {
+    console.log("ERROR: "err);
+  }
+
+  try{
+    retweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+  } catch(err) {
+    console.log("ERROR: "err);
+  }
 }
 
 function getConsumptionData(callback) {

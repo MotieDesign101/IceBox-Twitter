@@ -2,7 +2,7 @@ var constants = require('./../../constants.js');
 var helper = require('./../controllerhelper.js');
 var Twitter = require('twitter');
 
-var probability = 50;
+var probability = 1;
 
 var client = new Twitter({
   consumer_key: constants.getConsumerKey() || process.env.ICEBOX_TWITTER_CONSUMER_KEY,
@@ -30,6 +30,7 @@ function getTweets() {
     if(potentialtweet == undefined) {
       return;
     }
+    console.log(JSON.stringify(potentialtweet));
     console.log("ID of potential tweet "+potentialtweet.id);
     if(idOfLastTweet == 0 || idOfLastTweet == potentialtweet.id) {
       idOfLastTweet = potentialtweet.id;
@@ -38,9 +39,11 @@ function getTweets() {
       console.log("WE SHALL RETWEEEEEEEET");
       idOfLastTweet = potentialtweet.id;
       if(helper.randomTrueFalse (probability)) {
-        client.post('statuses/retweet/' + potentialtweet.id, function(error, tweet, response){
+        client.post('statuses/retweet/' + potentialtweet.id_str, function(error, tweet, response){
           if (!error) {
             console.log(tweet);
+          } else {
+            console.log(error);
           }
         });
       }

@@ -2,7 +2,7 @@ var constants = require('./../../constants.js');
 var helper = require('./../controllerhelper.js');
 var Twitter = require('twitter');
 
-var probability = 1;
+var probability = 50;
 
 var client = new Twitter({
   consumer_key: constants.getConsumerKey() || process.env.ICEBOX_TWITTER_CONSUMER_KEY,

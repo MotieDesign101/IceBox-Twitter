@@ -33,7 +33,7 @@ function generateTweets(tweetsToSendOut, consumptionData) {
   try{
     retweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
   } catch(err) {
-    console.log("ERROR: "err);
+    console.log("ERROR: "+err);
   }
 }
 

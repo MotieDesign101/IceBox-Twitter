@@ -15,19 +15,19 @@ function generateTweets(tweetsToSendOut, consumptionData) {
   try{
     randomtweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
   } catch(err) {
-    console.log("ERROR: "err);
+    console.log("ERROR: "+err);
   }
 
   try{
     midnighttweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
   } catch(err) {
-    console.log("ERROR: "err);
+    console.log("ERROR: "+err);
   }
 
   try{
     commentdrink.potentiallyAddTweet(tweetsToSendOut, consumptionData);
   } catch(err) {
-    console.log("ERROR: "err);
+    console.log("ERROR: "+err);
   }
 
   try{

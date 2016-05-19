@@ -22,6 +22,10 @@ exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {
   }
 }
 
+exports.checkForTweet = function(counter) {
+  return true;
+}
+
 function addTweet(tweetsToSendOut, consumptionData) {
   tweetsToSendOut.push(helper.getRandomTweet(tweets));
 }

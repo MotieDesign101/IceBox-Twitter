@@ -6,6 +6,10 @@ exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {
   }
 }
 
+exports.checkForTweet = function(counter) {
+  return true;
+}
+
 function addTweet(tweetsToSendOut, consumptionData) {
   getAmountOfDrinks(tweetsToSendOut, consumptionData);
   getMostConsumedDrink(tweetsToSendOut, consumptionData);

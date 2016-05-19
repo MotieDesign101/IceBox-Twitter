@@ -4,6 +4,7 @@ var commentdrink = require('./specific/commentDrink.js');
 var retweet = require('./specific/retweet.js');
 
 var request = require("request");
+var counter = 0;
 
 exports.generateNewTweets = function(tweetsToSendOut) {
   getConsumptionData(function(consumptionData) {
@@ -12,26 +13,35 @@ exports.generateNewTweets = function(tweetsToSendOut) {
 }
 
 function generateTweets(tweetsToSendOut, consumptionData) {
+  counter++;
   try{
-    randomtweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    if(randomtweet.checkForTweet(counter)) {
+      randomtweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    }
   } catch(err) {
     console.log("ERROR: "+err);
   }
 
   try{
-    midnighttweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    if(midnighttweet.checkForTweet(counter)) {
+      midnighttweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    }
   } catch(err) {
     console.log("ERROR: "+err);
   }
 
   try{
-    commentdrink.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    if(commentdrink.checkForTweet(counter)) {
+      commentdrink.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    }
   } catch(err) {
     console.log("ERROR: "+err);
   }
 
   try{
-    retweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    if(retweet.checkForTweet(counter)) {
+      retweet.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    }
   } catch(err) {
     console.log("ERROR: "+err);
   }
@@ -40,7 +50,7 @@ function generateTweets(tweetsToSendOut, consumptionData) {
 function getConsumptionData(callback) {
   console.log("get consumption data");
   var url = "http://icebox.nobreakspace.org:8081/consumptions/1";
-  //var url = "http://localhost:8081/consumptions/1";
+  //url = "http://localhost:8081/consumptions/1";
   webrequest(url, function(body) {
     callback(body);
   });

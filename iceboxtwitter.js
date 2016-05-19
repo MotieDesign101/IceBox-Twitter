@@ -15,7 +15,11 @@ var tweetsToSendOut = [];
 main();
 
 function main() {
-  repeat();
+  try{
+    repeat();
+  } catch(err) {
+    console.log("ERROR: "+err);
+  }
   setTimeout(function() {
     main();
   }, rotationTime);
@@ -35,9 +39,13 @@ function tweetIfPossible() {
   }
 }
 
+var testing = false;
+
 function tweet(text) {
   console.log("tweet: "+ text);
-
+  if(testing) {
+    return;
+  }
   client.post('statuses/update', {
     status: text
   }, function(error, tweet, response) {
@@ -52,30 +60,6 @@ function tweet(text) {
 }
 
 //=====OLD===
-
-
-function commentOnADrink(body) {
-  console.log("comment on a drink?")
-  drink = body[0];
-
-  var then = new Date(drink.consumetime);
-  var now = new Date();
-  console.log(then);
-  console.log(now);
-
-  console.log(now.getTime()/1000 - then.getTime()/1000);
-
-  if (now.getTime() - then.getTime() <= rotationTime) {
-    console.log("somebody did buy something...")
-    if (random(500)) {
-      console.log("..");
-      niceDrinkYouHaveThere(drink);
-    }
-  }
-}
-
-
-
 function trendingmate(body) {
   var total = body.length;
 
@@ -131,13 +115,3 @@ client.get('search/tweets', {q: '#nbspgefluester'}, function(error, tweets, resp
    //if the source is @der_derwisch, only do it, if it has at least 5 retweets and 5 likes
 });
 */
-
-function niceDrinkYouHaveThere(drink) {
-  console.log("TWEET:");
-  var niceDrink = tweets.getNiceDrinkTweet();
-  console.log(niceDrink);
-  var name = drink.name;
-  name = name.replace('(0.5l)', '');
-  name = name.replace('(0.3l)', '');
-  tweet(niceDrink.replace('<name>', drink.name));
-}

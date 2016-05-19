@@ -12,11 +12,15 @@ var tweets = [
   'Jemand hat <name> getrunken. Das war doch bestimmt wieder @DasIstDasBein.',
   'Wenn die Sonne scheint, ist die richtige Zeit für <name>!',
   'Marmor, Stein und Eisen bricht, aber hoffentlich die Flasche <name> nicht!',
-  'Kommt in den #Nbsp! Dort gibt\'s <name>!'
+  'Kommt in den #Nbsp! Dort gibts <name>!'
 ]
 
 exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {
   addTweetIfNewDrink(tweetsToSendOut, consumptionData);
+}
+
+exports.checkForTweet = function(counter) {
+  return true;
 }
 
 function addTweetIfNewDrink(tweetsToSendOut, consumptionData) {

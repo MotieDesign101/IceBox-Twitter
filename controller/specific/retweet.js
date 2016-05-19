@@ -17,6 +17,10 @@ exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {
   getTweets();
 }
 
+exports.checkForTweet = function(counter) {
+  return counter%500 == 1;
+}
+
 function getTweets() {
   client.get('search/tweets', {q: '#nbspgefluester'}, function(error, tweets, response){
     //var jtweets = JSON.parse(tweets);
@@ -30,15 +34,16 @@ function getTweets() {
     if(potentialtweet == undefined) {
       return;
     }
-    console.log(JSON.stringify(potentialtweet));
+    //console.log(JSON.stringify(potentialtweet));
     console.log("ID of potential tweet "+potentialtweet.id);
     if(idOfLastTweet == 0 || idOfLastTweet == potentialtweet.id) {
       idOfLastTweet = potentialtweet.id;
       //do nothing, you decided on this tweet the last time
     } else {
-      console.log("WE SHALL RETWEEEEEEEET");
       idOfLastTweet = potentialtweet.id;
+      console.log("retweet?");
       if(helper.randomTrueFalse (probability)) {
+        console.log("WE SHALL RETWEEEEEEEET");
         client.post('statuses/retweet/' + potentialtweet.id_str, function(error, tweet, response){
           if (!error) {
             console.log(tweet);

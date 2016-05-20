@@ -51,7 +51,6 @@ function tweet(text) {
   }, function(error, tweet, response) {
     if (error) {
       console.log(JSON.stringify(error));
-      throw error;
     }
     console.log(tweet); // Tweet body.
     console.log(response); // Raw response object.

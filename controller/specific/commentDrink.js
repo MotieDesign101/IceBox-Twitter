@@ -24,15 +24,18 @@ exports.checkForTweet = function(counter) {
 }
 
 function addTweetIfNewDrink(tweetsToSendOut, consumptionData) {
+  console.log("new drink?")
   drink = consumptionData[0];
 
   if(drink == undefined) {
     return;
   }
+
   var then = new Date(drink.consumetime);
   var now = new Date();
 
-  if (now.getTime()/1000 - then.getTime()/1000 <= 30 && helper.randomTrueFalse(probability)) {
+  console.log(now.getTime()/1000 - then.getTime()/1000);
+  if (now.getTime()/1000 - then.getTime()/1000 <= 100 && helper.randomTrueFalse(probability)) {
     console.log(then);
     console.log(now);
 

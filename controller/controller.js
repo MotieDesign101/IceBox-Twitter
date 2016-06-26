@@ -51,6 +51,8 @@ function generateTweets(tweetsToSendOut, consumptionData) {
 
   try{
     if(!iceboxdownbefore && iceboxdown) {
+      console.log("we shoukd tweet, that icebox is down...");
+      iceboxdownbefore = true;
       iceboxdowntweets.potentiallyAddTweet(tweetsToSendOut, consumptionData);
     }
   } catch(err) {
@@ -79,6 +81,7 @@ function webrequest(requestUrl, callback) {
       callback(body);
     } else {
       if(!iceboxdown) {
+        console.log("adding iceboxdown...");
         iceboxdown = true;
       }
       iceboxdown

@@ -8,6 +8,7 @@ var tweets = [
 ]
 
 exports.potentiallyAddTweet = function(tweetsToSendOut) {
+  console.log("go");
   addTweet(tweetsToSendOut);
 }
 

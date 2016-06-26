@@ -15,7 +15,7 @@ exports.potentiallyAddTweet = function(tweetsToSendOut) {
 function addTweet(tweetsToSendOut) {
   console.log("TWEET:");
   var theTweet = helper.getRandomTweet(tweets)
-  console.log(niceDrink);
+  console.log(theTweet);
 
   tweetsToSendOut.push(theTweet);
 }

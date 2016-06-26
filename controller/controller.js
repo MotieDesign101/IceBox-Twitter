@@ -2,9 +2,12 @@ var randomtweet = require('./specific/randomtweet.js');
 var midnighttweet = require('./specific/midnighttweet.js');
 var commentdrink = require('./specific/commentDrink.js');
 var retweet = require('./specific/retweet.js');
+var iceboxdowntweets = require('./specific/iceboxdown.js')
 
 var request = require("request");
 var counter = 0;
+var iceboxdown = false;
+var iceboxdownbefore = false;
 
 exports.generateNewTweets = function(tweetsToSendOut) {
   getConsumptionData(function(consumptionData) {
@@ -45,6 +48,14 @@ function generateTweets(tweetsToSendOut, consumptionData) {
   } catch(err) {
     console.log("ERROR: "+err);
   }
+
+  try{
+    if(!iceboxdownbefore && iceboxdown) {
+      iceboxdowntweets.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+    }
+  } catch(err) {
+    console.log("ERROR: "+err);
+  }
 }
 
 function getConsumptionData(callback) {
@@ -62,9 +73,15 @@ function webrequest(requestUrl, callback) {
     url: requestUrl,
     json: true
   }, function(error, response, body) {
-    console.log(response.statusCode);
     if (!error && (response.statusCode === 200 || response.statusCode === 201)) {
+      iceboxdown = false;
+      console.log(response.statusCode);
       callback(body);
+    } else {
+      if(!iceboxdown) {
+        iceboxdown = true;
+      }
+      iceboxdown
     }
   });
 }

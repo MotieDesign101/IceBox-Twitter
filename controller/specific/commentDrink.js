@@ -51,8 +51,8 @@ function addTweet(tweetsToSendOut, drink) {
   console.log(niceDrink);
   var name = drink.name;
 
-  name = name.replace('(0.5l)', '');
-  name = name.replace('(0.3l)', '');
+  name = name.replace(' (0.5l)', '');
+  name = name.replace(' (0.3l)', '');
 
   tweetsToSendOut.push(niceDrink.replace('<name>', name));
 }

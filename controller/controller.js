@@ -77,14 +77,15 @@ function webrequest(requestUrl, callback) {
   }, function(error, response, body) {
     if (!error && (response.statusCode === 200 || response.statusCode === 201)) {
       iceboxdown = false;
+      iceboxdownbefore = false;
       console.log(response.statusCode);
       callback(body);
     } else {
       if(!iceboxdown) {
         console.log("adding iceboxdown...");
         iceboxdown = true;
+        callback();
       }
-      iceboxdown
     }
   });
 }

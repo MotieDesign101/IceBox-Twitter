@@ -3,8 +3,7 @@ var helper = require('./../controllerhelper.js');
 var probability = 1;
 
 var tweets = [
-  'Aktuell antwortet icebox nicht... evtl down?',
-  'Begründeter Verdacht, dass Icebox aktuell nicht verfügbar ist.'
+  'Aaaaaand we are back'
 ]
 
 exports.potentiallyAddTweet = function(tweetsToSendOut) {

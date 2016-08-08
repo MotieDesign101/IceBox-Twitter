@@ -3,6 +3,7 @@ var midnighttweet = require('./specific/midnighttweet.js');
 var commentdrink = require('./specific/commentDrink.js');
 var retweet = require('./specific/retweet.js');
 var iceboxdowntweets = require('./specific/iceboxdown.js')
+var iceboxuptweets = require('./specific/iceboxbackup.js')
 
 var request = require("request");
 var counter = 0;
@@ -51,9 +52,19 @@ function generateTweets(tweetsToSendOut, consumptionData) {
 
   try{
     if(!iceboxdownbefore && iceboxdown) {
-      console.log("we shoukd tweet, that icebox is down...");
+      console.log("we should tweet, that icebox is down...");
       iceboxdownbefore = true;
-      iceboxdowntweets.potentiallyAddTweet(tweetsToSendOut, consumptionData);
+      iceboxdowntweets.potentiallyAddTweet(tweetsToSendOut);
+    }
+  } catch(err) {
+    console.log("ERROR: "+err);
+  }
+
+  try{
+    if(iceboxdownbefore && !iceboxdown) {
+      iceboxdownbefore = false;
+      console.log("we should tweet, that icebox is back up...");
+      iceboxuptweets.potentiallyAddTweet(tweetsToSendOut);
     }
   } catch(err) {
     console.log("ERROR: "+err);
@@ -76,8 +87,10 @@ function webrequest(requestUrl, callback) {
     json: true
   }, function(error, response, body) {
     if (!error && (response.statusCode === 200 || response.statusCode === 201)) {
+      if(!iceboxdown) {
+        iceboxdownbefore = false;
+      }
       iceboxdown = false;
-      iceboxdownbefore = false;
       console.log(response.statusCode);
       callback(body);
     } else {

@@ -87,7 +87,7 @@ function webrequest(requestUrl, callback) {
     json: true
   }, function(error, response, body) {
     if (!error && (response.statusCode === 200 || response.statusCode === 201)) {
-      if(!iceboxdown) {
+      if(iceboxdown) {
         iceboxdownbefore = false;
       }
       iceboxdown = false;

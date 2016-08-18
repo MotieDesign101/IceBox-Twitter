@@ -17,7 +17,7 @@ function addTweet(tweetsToSendOut, consumptionData) {
 }
 
 function getAmountOfDrinks(tweetsToSendOut, consumptionData) {
-  var tweetText = "Mitternachtsstatistik: Am vergangenen Tag wurden insgesammt ";
+  var tweetText = "Mitternachtsstatistik: Am vergangenen Tag wurden insgesamt ";
   var howManyDrinks = consumptionData.length;
   tweetText = tweetText + howManyDrinks;
   tweetText = tweetText + " Getränke gekauft."

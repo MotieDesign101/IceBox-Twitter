@@ -1,8 +1,8 @@
-var consumerKey = 'yourConsumerKey';
-var consumerSecret = 'yourSecretKey';
+var consumerKey = null;
+var consumerSecret = null;
 
-var accessTokenKey = 'yourAccessTokenKey';
-var accessTokenSecret = 'yourAccessTokenSecret';
+var accessTokenKey = null;
+var accessTokenSecret = null;
 
 exports.getConsumerSecret = function() {
   return consumerSecret ;

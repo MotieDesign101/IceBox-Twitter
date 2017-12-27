@@ -4,7 +4,7 @@ var probability = 10;
 
 var tweets = [
   'Ah, <name>. Sehr geil. Dorsch ist auch sehr geil. #dorsch',
-  'Wer kauft den bitte <name>?',
+  'Wer kauft denn bitte <name>?',
   '<name> --;',
   'Wer säuft denn schon dieses <name>? Komische Menschen sind das im #Nbsp.',
   'Schon gehört? Jemand hat <name> vernascht.',
@@ -12,7 +12,12 @@ var tweets = [
   'Jemand hat <name> getrunken. Das war doch bestimmt wieder @DasIstDasBein.',
   'Wenn die Sonne scheint, ist die richtige Zeit für <name>!',
   'Marmor, Stein und Eisen bricht, aber hoffentlich die Flasche <name> nicht!',
-  'Kommt in den #Nbsp! Dort gibts <name>!'
+  'Kommt in den #Nbsp! Dort gibts <name>!',
+  'Es wird getrunken: <name> oder Lack.\n- Im #Nbsp #LackOperatingCenter',
+  'Wir haben auch Chips! Jemand isst: <name>!',
+  'Wenn dein Telefon heute klingelt: Gieße es mit <name>!',
+  '<name> in die 🍼 - das Nuckelt!',
+  'Leute die <name> mochten mochten auch: 🥛 🍺 🍻 🍷 🥂 🥃 🍸 🍹 🍾 🍶.'
 ]
 
 exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {

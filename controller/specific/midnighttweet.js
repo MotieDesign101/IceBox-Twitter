@@ -63,12 +63,12 @@ function getMostConsumedDrink(tweetsToSendOut, consumptionData) {
       allDrinks.push(consumptionData[i]['name'])
     }
     console.log(allDrinks);
+    var name = getMostCommonFromArray(allDrinks);
+    console.log(name);
+    var popDrinkTweet = helper.getRandomTweet(popularDrink);
+    popDrinkTweet = popDrinkTweet.replace('<name>', name);
+    tweetsToSendOut.push(popDrinkTweet);
   }
-  var name = getMostCommonFromArray(allDrinks);
-  console.log(name);
-  var popDrinkTweet = helper.getRandomTweet(popularDrink);
-  popDrinkTweet = popDrinkTweet.replace('<name>', name);
-  tweetsToSendOut.push(popDrinkTweet);
 }
 
 function getMostCommonFromArray(array)
@@ -117,8 +117,7 @@ function getAmountOfCaffeein(tweetsToSendOut, consumptionData) {
 
 function getAmountOfSugar(tweetsToSendOut, consumptionData) {
   console.log("bla Sugar");
-  if(true) {
-  //if(helper.randomTrueFalse (probability)) {
+  if(helper.randomTrueFalse (probability)) {
     var cafSum = 0.0;
     getIngredientData( function(ingredientData) {
       for( var i in consumptionData) {

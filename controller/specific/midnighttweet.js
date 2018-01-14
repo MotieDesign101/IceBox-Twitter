@@ -105,7 +105,8 @@ function getAmountOfCaffeein(tweetsToSendOut, consumptionData) {
         var barcode = consumption['barcode'];
         var specificIngredient = ingredientData[barcode];
         var specificCaffein = specificIngredient['caffeine'];
-        cafSum = cafSum + specificCaffein;
+        var specificAmount = specificIngredient['amount'];
+        cafSum = cafSum + ((specificCaffein/100.0)*specificAmount);
       }
       var caffeinTweet = helper.getRandomTweet(caffeinTweets);
       caffeinTweet = caffeinTweet.replace('<mg>', cafSum.toFixed(2));
@@ -125,7 +126,8 @@ function getAmountOfSugar(tweetsToSendOut, consumptionData) {
         var barcode = consumption['barcode'];
         var specificIngredient = ingredientData[barcode];
         var specificCaffein = specificIngredient['sugar'];
-        cafSum = cafSum + specificCaffein;
+        var specificAmount = specificIngredient['amount'];
+        cafSum = cafSum + ((specificCaffein/100.0)*specificAmount);
       }
       var sugarTweet = helper.getRandomTweet(sugarTweets);
       sugarTweet = sugarTweet.replace('<mg>', cafSum.toFixed(2));

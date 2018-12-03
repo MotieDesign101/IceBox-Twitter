@@ -73,7 +73,7 @@ function generateTweets(tweetsToSendOut, consumptionData) {
 
 function getConsumptionData(callback) {
   console.log("get consumption data");
-  var url = "http://172.23.208.37/:8081/consumptions/1";
+  var url = "http://172.23.208.37:8081/consumptions/1";
   //url = "http://localhost:8081/consumptions/1";
   webrequest(url, function(body) {
     callback(body);

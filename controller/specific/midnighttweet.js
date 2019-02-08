@@ -142,7 +142,8 @@ function getAmountOfSugar(tweetsToSendOut, consumptionData) {
 
 function getIngredientData(callback) {
   console.log("get ingredient data");
-  var url = "http://icebox.nobreakspace.org:8087/ingred";
+  //var url = "http://icebox.nobreakspace.org:8087/ingred";
+  var url = "http://localhost:8087/ingred";
   webrequest(url, function(body) {
     callback(body);
   });

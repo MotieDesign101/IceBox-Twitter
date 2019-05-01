@@ -17,7 +17,15 @@ var tweets = [
   'Wir haben auch Chips! Jemand isst: <name>!',
   'Wenn dein Telefon heute klingelt: Gieße es mit <name>!',
   '<name> in die 🍼 - das Nuckelt!',
-  'Leute die <name> mochten mochten auch: 🥛 🍺 🍻 🍷 🥂 🥃 🍸 🍹 🍾 🍶.'
+  'Leute die <name> mochten mochten auch: 🥛 🍺 🍻 🍷 🥂 🥃 🍸 🍹 🍾 🍶.',
+  'Da versucht doch wer, mit <name> ein neues Getränk zu mischen?',
+  'Von den <name>, die es weniger gibt gibt es jetzt eins mehr! Der Schwund ist quasi im Kommen.',
+  'Wird tatsächlich <name> getrunken, oder handelt es sich um ein geschicktes Alibi?',
+  'Innehalten und nachschmecken - was ist eigentlich die Essenz von <name>?',
+  '<name> schmeckt wie Physik durch Wollen.',
+  'Schonmal ein Getränk aufgekocht und als Suppe genossen? Eine <name> ist jetzt die Gelegenheit!',
+  'Discuss <name>: Top oder Flop?',
+  '1 Lebewesen im #Nbsp besteht demnächst zu einem höheren Anteil aus <name>.'
 ]
 
 exports.potentiallyAddTweet = function(tweetsToSendOut, consumptionData) {
